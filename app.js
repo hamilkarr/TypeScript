@@ -1,1 +1,5 @@
-console.log('Hello World');
+var person = {
+    name: 'Maximilian',
+    age: 30,
+};
+console.log(person);
