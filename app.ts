@@ -1,6 +1,12 @@
-const person = {
-    name: 'Maximilian',
-    age: 30,
-};
+let userInput: unknown;
+let userName: string;
 
-console.log(person);
+userInput = 5;
+userInput = 'Max';
+if (typeof userInput === 'string') {
+    userName = userInput;
+}
+
+function generateError(message: string, code: number): never {
+    throw { message: message, errorCode: code };
+}
