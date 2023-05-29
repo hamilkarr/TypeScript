@@ -21,6 +21,10 @@ type Numeric = number | boolean;
 
 type Universal = Combinable & Numeric;
 
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
+function add(a: string, b: number): string;
+function add(a: number, b: string): string;
 function add(a: Combinable, b: Combinable) {
     if (typeof a === 'string' || typeof b === 'string') {
         return a.toString() + b.toString();
@@ -29,84 +33,96 @@ function add(a: Combinable, b: Combinable) {
     return a + b;
 }
 
-type UnknownEmployee = Employee | Admin;
+const result = add('Max', ' Schwarz');
+result.split(' ');
 
-function printEmployeeInformation(emp: UnknownEmployee) {
-    console.log('Name: ' + emp.name);
+// type UnknownEmployee = Employee | Admin;
 
-    if ('privileges' in emp) {
-        console.log('Privileges: ' + emp.privileges);
-    }
+// function printEmployeeInformation(emp: UnknownEmployee) {
+//     console.log('Name: ' + emp.name);
 
-    if ('startDate' in emp) {
-        console.log('Start Date: ' + emp.startDate);
-    }
-}
+//     if ('privileges' in emp) {
+//         console.log('Privileges: ' + emp.privileges);
+//     }
 
-printEmployeeInformation(e1);
+//     if ('startDate' in emp) {
+//         console.log('Start Date: ' + emp.startDate);
+//     }
+// }
 
-class Car {
-    drive() {
-        console.log('Driving...');
-    }
-}
+// printEmployeeInformation(e1);
 
-class Truck {
-    drive() {
-        console.log('Driving a truck...');
-    }
+// class Car {
+//     drive() {
+//         console.log('Driving...');
+//     }
+// }
 
-    loadCargo(amount: number) {
-        console.log('Loading cargo...' + amount);
-    }
-}
+// class Truck {
+//     drive() {
+//         console.log('Driving a truck...');
+//     }
 
-type Vehicle = Car | Truck;
+//     loadCargo(amount: number) {
+//         console.log('Loading cargo...' + amount);
+//     }
+// }
 
-const v1 = new Car();
-const v2 = new Truck();
+// type Vehicle = Car | Truck;
 
-function useVehicle(vehicle: Vehicle) {
-    vehicle.drive();
+// const v1 = new Car();
+// const v2 = new Truck();
 
-    if (vehicle instanceof Truck) {
-        vehicle.loadCargo(1000);
-    }
-}
+// function useVehicle(vehicle: Vehicle) {
+//     vehicle.drive();
 
-useVehicle(v1);
-useVehicle(v2);
+//     if (vehicle instanceof Truck) {
+//         vehicle.loadCargo(1000);
+//     }
+// }
 
-interface Bird {
-    type: 'bird';
-    flyingSpeed: number;
-}
+// useVehicle(v1);
+// useVehicle(v2);
 
-interface Horse {
-    type: 'horse';
-    runningSpeed: number;
-}
+// interface Bird {
+//     type: 'bird';
+//     flyingSpeed: number;
+// }
 
-type Animal = Bird | Horse;
+// interface Horse {
+//     type: 'horse';
+//     runningSpeed: number;
+// }
 
-function moveAnimal(animal: Animal) {
-    let speed;
-    switch (animal.type) {
-        case 'bird':
-            speed = animal.flyingSpeed;
-            break;
-        case 'horse':
-            speed = animal.runningSpeed;
-            break;
-    }
+// type Animal = Bird | Horse;
 
-    console.log('Moving at speed: ' + speed);
-}
+// function moveAnimal(animal: Animal) {
+//     let speed;
+//     switch (animal.type) {
+//         case 'bird':
+//             speed = animal.flyingSpeed;
+//             break;
+//         case 'horse':
+//             speed = animal.runningSpeed;
+//             break;
+//     }
 
-moveAnimal({ type: 'bird', flyingSpeed: 10 });
+//     console.log('Moving at speed: ' + speed);
+// }
 
-const userInputElement = document.getElementById('user-input');
+// moveAnimal({ type: 'bird', flyingSpeed: 10 });
 
-if (userInputElement) {
-    (userInputElement as HTMLInputElement).value = 'Hi there!';
-}
+// const userInputElement = document.getElementById('user-input');
+
+// if (userInputElement) {
+//     (userInputElement as HTMLInputElement).value = 'Hi there!';
+// }
+
+// interface ErrorContainer {
+//     [property: string]: string;
+// }
+
+// const errorBag: ErrorContainer = {
+//     email: 'Not a valid email!',
+//     username: 'Must start with a capital character!',
+// };
